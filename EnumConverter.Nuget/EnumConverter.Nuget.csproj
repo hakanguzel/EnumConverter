@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>EnumConverter</PackageId>
+    <Title>EnumConverter</Title>
+    <Authors>Hakan Güzel</Authors>
+    <Description>Enum Conventer Extension</Description>
+    <PackageProjectUrl>https://github.com/hakanguzel/EnumConverter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/hakanguzel/EnumConverter</RepositoryUrl>
+    <RepositoryType>Class Library</RepositoryType>
+    <PackageTags>enum,converter</PackageTags>
+    <PackageVersion>1.0.0</PackageVersion>
+  </PropertyGroup>
+
+</Project>
