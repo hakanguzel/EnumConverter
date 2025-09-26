@@ -7,13 +7,13 @@ Simple extension methods for converting between enum values, numeric identifiers
 - Safely map integers or nullable integers back to strongly typed enums.
 - Parse enum values from strings with optional case-insensitive handling.
 - Try-style helpers that avoid exceptions and report success.
-- Multi-targeted library: `netstandard2.0` for broad compatibility and `net8.0` for modern apps.
+- Built for modern .NET 8 apps.
 
 ## Installation
 Install from NuGet:
 
 ```bash
- dotnet add package EnumConverter --version 1.1.0
+ dotnet add package EnumConverter --version 2.0.0
 ```
 
 ## Usage
@@ -53,16 +53,16 @@ if (" shipped ".TryToEnum<OrderStatus>(out var statusFromString))
 var optionalStatus = "unknown".ToNullableEnum<OrderStatus>(); // null
 ```
 
+## Requirements
+- .NET SDK 8.0 or later
+
 ## Building & Testing
-1. Install the .NET SDK 8.0 or later.
-2. Restore and test the solution:
+1. Restore and test the solution:
 
 ```bash
  dotnet restore
  dotnet test
 ```
-
-Targets older than .NET 8 can still consume the `netstandard2.0` build of the package.
 
 ## Contributing
 Issues and pull requests are welcome. Please open an issue to discuss significant changes before submitting a PR.

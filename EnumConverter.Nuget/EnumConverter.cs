@@ -11,10 +11,7 @@ namespace EnumConverter.Nuget
         /// <returns>32-bit integer representation of the enum value.</returns>
         public static int ToInt(this Enum value)
         {
-            if (value is null)
-            {
-                throw new ArgumentNullException(nameof(value));
-            }
+            ArgumentNullException.ThrowIfNull(value);
 
             return Convert.ToInt32(value);
         }
@@ -45,12 +42,7 @@ namespace EnumConverter.Nuget
         /// <returns>Enum value or null when no numeric value is provided.</returns>
         public static T? ToEnum<T>(this int? value, bool validateDefinition = false) where T : struct, Enum
         {
-            if (!value.HasValue)
-            {
-                return null;
-            }
-
-            return value.Value.ToEnum<T>(validateDefinition);
+            return value is null ? null : value.Value.ToEnum<T>(validateDefinition);
         }
 
         /// <summary>
@@ -81,10 +73,7 @@ namespace EnumConverter.Nuget
         /// <returns>Enum value represented by the string.</returns>
         public static T ToEnum<T>(this string value, bool ignoreCase = true) where T : struct, Enum
         {
-            if (value is null)
-            {
-                throw new ArgumentNullException(nameof(value));
-            }
+            ArgumentNullException.ThrowIfNull(value);
 
             if (Enum.TryParse(value, ignoreCase, out T result))
             {

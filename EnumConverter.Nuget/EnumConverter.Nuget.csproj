@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>latest</LangVersion>
@@ -17,8 +17,8 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
     <PackageTags>enum;converter;extensions</PackageTags>
-    <PackageVersion>1.1.0</PackageVersion>
-    <PackageReleaseNotes>Added string/nullable overloads, validation helpers, and .NET 8 multi-targeting.</PackageReleaseNotes>
+    <PackageVersion>2.0.0</PackageVersion>
+    <PackageReleaseNotes>Dropped legacy frameworks; package now targets .NET 8 exclusively.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
