@@ -1,4 +1,3 @@
-using System;
 using EnumConverter.Nuget;
 using Xunit;
 
@@ -79,7 +78,7 @@ namespace EnumConverter.Tests
         }
     }
 
-    private enum TestEnum
+    public enum TestEnum
     {
         None = 1,
         Pending = 2,
