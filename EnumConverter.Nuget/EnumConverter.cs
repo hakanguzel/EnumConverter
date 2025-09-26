@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace EnumConverter.Nuget
+namespace EnumConverter
 {
     public static class EnumConverter
     {

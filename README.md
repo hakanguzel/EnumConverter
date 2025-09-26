@@ -14,13 +14,13 @@ Simple extension methods for converting between enum values, numeric identifiers
 Install from NuGet:
 
 ```bash
- dotnet add package EnumConverter --version 2.1.0
+ dotnet add package EnumConverter --version 2.2.0
 ```
 
 ## Usage
 ```csharp
 using System;
-using EnumConverter.Nuget;
+using EnumConverter;
 
 [Flags]
 public enum AccessRights : byte

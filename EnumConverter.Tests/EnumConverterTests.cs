@@ -1,5 +1,5 @@
 using System;
-using EnumConverter.Nuget;
+using EnumConverter;
 using Xunit;
 
 namespace EnumConverter.Tests
