@@ -4,9 +4,10 @@ Simple extension methods for converting between enum values, numeric identifiers
 
 ## Features
 - Convert enums to their numeric underlying values with null checking.
-- Safely map integers or nullable integers back to strongly typed enums.
-- Parse enum values from strings with optional case-insensitive handling.
-- Try-style helpers that avoid exceptions and report success.
+- Generic helpers cover every enum backing type (byte, long, etc.).
+- Definition validation understands `[Flags]` combinations while rejecting unknown bits.
+- Parse from strings using `StringComparison` or allocation-free `ReadOnlySpan<char>` APIs.
+- Nullable and try-style helpers cover numeric, string, and span inputs.
 - Built for modern .NET 8 apps.
 
 ## Installation
@@ -18,7 +19,16 @@ Install from NuGet:
 
 ## Usage
 ```csharp
+using System;
 using EnumConverter.Nuget;
+
+[Flags]
+public enum AccessRights : byte
+{
+    None = 0,
+    Read = 1,
+    Write = 2
+}
 
 public enum OrderStatus
 {
@@ -27,30 +37,38 @@ public enum OrderStatus
     Delivered = 3
 }
 
-var status = OrderStatus.Shipped;
-
 // Numeric conversions
-int value = status.ToInt();          // 2
-OrderStatus parsed = value.ToEnum<OrderStatus>();
+int value = OrderStatus.Shipped.ToInt();              // 2
+OrderStatus parsed = value.ToEnum<OrderStatus>();     // OrderStatus.Shipped
+byte access = AccessRights.Read.ToValue<AccessRights, byte>(); // 1
 
-// Validation
+// Validation across all backing types (supports [Flags] combinations)
 int unknown = 999;
-// Throws ArgumentOutOfRangeException when the value is not defined
-unknown.ToEnum<OrderStatus>(validateDefinition: true);
+unknown.ToEnum<OrderStatus>(validateDefinition: true); // throws ArgumentOutOfRangeException
+var readWrite = ((byte)3).ToEnum<AccessRights, byte>(validateDefinition: true); // Read | Write
 
-// Nullable values
+// Nullable numbers
 int? maybeValue = null;
 OrderStatus? nullableStatus = maybeValue.ToEnum<OrderStatus>();
+if (maybeValue.TryToEnum(out OrderStatus fallback))
+{
+    // handled
+}
 
-// String helpers
+// String helpers with custom comparisons
 var fromString = "delivered".ToEnum<OrderStatus>();
-if (" shipped ".TryToEnum<OrderStatus>(out var statusFromString))
+if (" shipped ".TryToEnum<OrderStatus>(out var statusFromString, StringComparison.OrdinalIgnoreCase))
 {
     // use parsed value
 }
 
+// Allocation-free span parsing
+ReadOnlySpan<char> span = "Pending".AsSpan();
+var spanParsed = span.ToEnum<OrderStatus>();
+
 // Graceful fallbacks
-var optionalStatus = "unknown".ToNullableEnum<OrderStatus>(); // null
+var optionalStatus = "unknown".ToNullableEnum<OrderStatus>();          // null
+var optionalFlags = "read, execute".ToNullableEnum<AccessRights>();    // AccessRights.Read | AccessRights.Execute
 ```
 
 ## Requirements
