@@ -15,6 +15,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
     <PackageTags>enum;converter;extensions</PackageTags>
     <PackageVersion>1.1.0</PackageVersion>
     <PackageReleaseNotes>Added string/nullable overloads, validation helpers, and .NET 8 multi-targeting.</PackageReleaseNotes>
@@ -22,6 +23,7 @@
 
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="/" />
+    <None Include="icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>
