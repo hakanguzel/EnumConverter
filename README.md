@@ -14,7 +14,7 @@ Simple extension methods for converting between enum values, numeric identifiers
 Install from NuGet:
 
 ```bash
- dotnet add package EnumConverter --version 2.0.0
+ dotnet add package EnumConverter --version 2.1.0
 ```
 
 ## Usage

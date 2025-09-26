@@ -17,8 +17,8 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
     <PackageTags>enum;converter;extensions</PackageTags>
-    <PackageVersion>2.0.0</PackageVersion>
-    <PackageReleaseNotes>Dropped legacy frameworks; package now targets .NET 8 exclusively.</PackageReleaseNotes>
+    <PackageVersion>2.1.0</PackageVersion>
+    <PackageReleaseNotes>Added generic backing-type conversions, improved [Flags] validation, and new string/span parsing helpers.</PackageReleaseNotes>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
